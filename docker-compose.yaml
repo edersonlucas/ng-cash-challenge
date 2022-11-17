@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+
+  database:
+    image: postgres:latest
+    container_name: database
+    platform: linux/x86_64
+    ports:
+      - 3002:5432
+    env_file: .env
+    restart: 'always'
+    networks:
+      - ngcash_net
+
+networks:
+  ngcash_net:
+    driver: bridge
