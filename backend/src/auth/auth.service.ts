@@ -4,6 +4,7 @@ import { AccountsService } from 'src/accounts/accounts.service';
 import { MessagesHelper } from '../helpers';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateUserDto } from '../dto';
+import { UserParamDto } from '../dto';
 
 @Injectable()
 export class AuthService {
@@ -27,6 +28,15 @@ export class AuthService {
     };
     const token = this.jwtService.sign(payload);
     return { username, balance: account.balance, token };
+  }
+
+  async login(userParamDto: UserParamDto) {
+    const payload = {
+      sub: userParamDto.accountId,
+      username: userParamDto.username,
+    };
+    const token = this.jwtService.sign(payload);
+    return { token };
   }
 
   private async userAlreadyExists(username: string) {
