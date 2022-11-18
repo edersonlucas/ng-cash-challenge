@@ -12,7 +12,5 @@ import { TransactionsModule } from './transactions/transactions.module';
     UsersModule,
     TransactionsModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
