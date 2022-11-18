@@ -5,8 +5,8 @@ import {
   OneToOne,
   OneToMany,
 } from 'typeorm';
-import { User } from './user.entity';
-import { Transaction } from './transaction.entity';
+import { User } from '.';
+import { Transaction } from '.';
 
 @Entity('accounts')
 export class Account {

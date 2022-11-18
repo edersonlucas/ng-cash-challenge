@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
   Column,
 } from 'typeorm';
-import { Account } from './account.entity';
+import { Account } from '.';
 
 @Entity('transactions')
 export class Transaction {

@@ -6,7 +6,7 @@ import {
   JoinColumn,
   BeforeInsert,
 } from 'typeorm';
-import { Account } from './account.entity';
+import { Account } from '.';
 import { hashSync } from 'bcrypt';
 
 @Entity('users')
