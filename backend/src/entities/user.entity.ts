@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
+import { Account } from './account.entity';
 
 @Entity('users')
 export class User {
@@ -10,6 +17,14 @@ export class User {
 
   @Column({ name: 'password', nullable: false })
   password: string;
+
+  @OneToOne(() => Account, {
+    eager: true,
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'accountId', referencedColumnName: 'id' }])
+  account: Account;
 
   @Column()
   accountId: string;

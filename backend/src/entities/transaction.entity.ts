@@ -1,14 +1,33 @@
 import {
   Entity,
   PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
   CreateDateColumn,
   Column,
 } from 'typeorm';
+import { Account } from './account.entity';
 
 @Entity('transactions')
 export class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @ManyToOne(() => Account, {
+    nullable: false,
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'debitedAccountId', referencedColumnName: 'id' }])
+  debitedAccount: Account;
+
+  @ManyToOne(() => Account, {
+    nullable: false,
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn([{ name: 'creditedAccountId', referencedColumnName: 'id' }])
+  creditedAccount: Account;
 
   @Column({
     type: 'decimal',

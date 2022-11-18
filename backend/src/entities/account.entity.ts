@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToOne,
+  OneToMany,
+} from 'typeorm';
+import { User } from './user.entity';
+import { Transaction } from './transaction.entity';
 
 @Entity('accounts')
 export class Account {
@@ -13,4 +21,11 @@ export class Account {
     nullable: false,
   })
   balance: number;
+
+  @OneToOne(() => User, (user) => user.account)
+  user: User;
+
+  @OneToMany(() => Transaction, (transaction) => transaction.creditedAccount)
+  @OneToMany(() => Transaction, (transaction) => transaction.debitedAccount)
+  transaction: Transaction;
 }
