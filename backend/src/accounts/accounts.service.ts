@@ -19,4 +19,9 @@ export class AccountsService {
     const account = this.accountRepository.create(createAccount);
     return await this.accountRepository.save(account);
   }
+
+  async findAccountById(id: string) {
+    const account = await this.accountRepository.findOneBy({ id });
+    return account;
+  }
 }
