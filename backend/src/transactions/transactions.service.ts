@@ -6,7 +6,7 @@ import { TransferDto, UserParamDto } from '../dto';
 import { UsersService } from 'src/users/users.service';
 import { AccountsService } from 'src/accounts/accounts.service';
 import { v4 as uuid } from 'uuid';
-import { MessagesHelper } from '../helpers';
+import { DateIsEqual, DateIsValid, MessagesHelper } from '../helpers';
 
 @Injectable()
 export class TransactionsService {
@@ -52,6 +52,21 @@ export class TransactionsService {
       ],
     });
     return await this.formatTransactions(transactions);
+  }
+
+  async findAllFiltered(user: UserParamDto, date?: string, cashType?: string) {
+    let transactions = await this.findAll(user);
+    if (cashType === 'cashIn' || cashType === 'cashOut') {
+      transactions = transactions.filter(
+        (transaction) => transaction[cashType] === user.username,
+      );
+    }
+    if (DateIsValid(new Date(date))) {
+      return transactions.filter((transaction) =>
+        DateIsEqual(new Date(date), new Date(transaction.createAt)),
+      );
+    }
+    return transactions;
   }
 
   private async transfer(sendId: string, receiveId: string, value: number) {
