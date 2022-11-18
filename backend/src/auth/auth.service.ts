@@ -4,8 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { AccountsService } from 'src/accounts/accounts.service';
 import { MessagesHelper } from '../helpers';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateUserDto } from '../dto';
-import { UserParamDto } from '../dto';
+import { CreateUserDto, UserParamDto } from '../dto';
 
 @Injectable()
 export class AuthService {
