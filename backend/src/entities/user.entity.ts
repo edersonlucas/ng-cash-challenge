@@ -4,8 +4,10 @@ import {
   Column,
   OneToOne,
   JoinColumn,
+  BeforeInsert,
 } from 'typeorm';
 import { Account } from './account.entity';
+import { hashSync } from 'bcrypt';
 
 @Entity('users')
 export class User {
@@ -28,4 +30,9 @@ export class User {
 
   @Column()
   accountId: string;
+
+  @BeforeInsert()
+  hashPassword() {
+    this.password = hashSync(this.password, 10);
+  }
 }
