@@ -1,7 +1,7 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserDecorator } from '../decorators';
-import { UserParamDto } from '../dto';
+import { UserParamDto, TransferDto } from '../dto';
 import { TransactionsService } from 'src/transactions/transactions.service';
 import { JwtGuard } from 'src/auth/guard';
 
@@ -20,5 +20,14 @@ export class UsersController {
       account: { balance },
     } = await this.usersService.findByUsername(username);
     return { balance };
+  }
+
+  @UseGuards(JwtGuard)
+  @Post('/transfer')
+  async create(
+    @Body() transferDto: TransferDto,
+    @UserDecorator() user: UserParamDto,
+  ) {
+    return this.transactionsService.create(transferDto, user);
   }
 }
