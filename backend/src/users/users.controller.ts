@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserDecorator } from '../decorators';
 import { UserParamDto, TransferDto } from '../dto';
@@ -29,5 +29,18 @@ export class UsersController {
     @UserDecorator() user: UserParamDto,
   ) {
     return this.transactionsService.create(transferDto, user);
+  }
+
+  @UseGuards(JwtGuard)
+  @Get('/transactions')
+  async findAll(
+    @UserDecorator() user: UserParamDto,
+    @Query('date') date?: string,
+    @Query('cashType') cashType?: string,
+  ) {
+    if (date || cashType) {
+      return this.transactionsService.findAllFiltered(user, date, cashType);
+    }
+    return this.transactionsService.findAll(user);
   }
 }
