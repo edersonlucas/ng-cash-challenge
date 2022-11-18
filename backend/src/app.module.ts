@@ -4,7 +4,10 @@ import { OrmConfig } from './database/ormConfig';
 import { AccountsModule } from './accounts/accounts.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(OrmConfig as TypeOrmModuleOptions), AccountsModule],
+  imports: [
+    TypeOrmModule.forRoot(OrmConfig as TypeOrmModuleOptions),
+    AccountsModule,
+  ],
   controllers: [],
   providers: [],
 })
