@@ -6,5 +6,6 @@ import { AccountsService } from './accounts.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Account])],
   providers: [AccountsService],
+  exports: [AccountsService],
 })
 export class AccountsModule {}
