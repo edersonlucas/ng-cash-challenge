@@ -20,6 +20,13 @@ export class AccountsService {
     return await this.accountRepository.save(account);
   }
 
+  async cashSend(id: string, value: number) {
+    const accountSend = await this.findAccountById(id);
+    accountSend.balance = Number(accountSend.balance) - value;
+    accountSend.balance = Number(accountSend.balance.toFixed(2));
+    return await this.accountRepository.save(accountSend);
+  }
+
   async findAccountById(id: string) {
     const account = await this.accountRepository.findOneBy({ id });
     return account;
