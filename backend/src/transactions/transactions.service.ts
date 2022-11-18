@@ -44,6 +44,16 @@ export class TransactionsService {
     return { id, userReceived: accountReceive.username, value, createAt };
   }
 
+  async findAll(user: UserParamDto) {
+    const transactions = await this.transactionRepository.find({
+      where: [
+        { debitedAccountId: user.accountId },
+        { creditedAccountId: user.accountId },
+      ],
+    });
+    return await this.formatTransactions(transactions);
+  }
+
   private async transfer(sendId: string, receiveId: string, value: number) {
     await this.accountService.cashSend(sendId, value);
     await this.accountService.cashReceived(receiveId, value);
@@ -75,5 +85,27 @@ export class TransactionsService {
         HttpStatus.BAD_REQUEST,
       );
     return { accountReceive, accountSend };
+  }
+
+  private async formatTransactions(transactions: Transaction[]) {
+    return await Promise.all(
+      transactions.map(async (transaction) => {
+        const { id, value, creditedAccountId, debitedAccountId, createAt } =
+          transaction;
+        const accountSend = await this.userService.findByAccountId(
+          debitedAccountId,
+        );
+        const accountReceive = await this.userService.findByAccountId(
+          creditedAccountId,
+        );
+        return {
+          id,
+          cashOut: accountSend.username,
+          cashIn: accountReceive.username,
+          value,
+          createAt,
+        };
+      }),
+    );
   }
 }
