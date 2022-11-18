@@ -1,3 +1,4 @@
+import { compareSync } from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { AccountsService } from 'src/accounts/accounts.service';
@@ -37,6 +38,14 @@ export class AuthService {
     };
     const token = this.jwtService.sign(payload);
     return { token };
+  }
+
+  async validateUser(username: string, password: string) {
+    const user = await this.userService.findByUsername(username);
+    if (!user) return null;
+    const isPasswordValid = compareSync(password, user.password);
+    if (!isPasswordValid) return null;
+    return user;
   }
 
   private async userAlreadyExists(username: string) {
