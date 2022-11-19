@@ -8,4 +8,7 @@ export const MessagesHelper = {
   INVALID_TRANSFER: 'This transfer is invalid.',
   USER_NOT_FOUND: 'User not found.',
   TOKEN_INVALID: 'Your token is invalid.',
+  VALUE_INVALID: 'The value must contain only two decimal places.',
+  NONE_TRANSACTION: "You haven't participated in any transactions yet.",
+  TRANSACTION_NOT_FOUND: 'No transaction found.',
 };
