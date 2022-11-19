@@ -2,6 +2,25 @@ version: '3.9'
 
 services:
 
+  frontend:
+    image: node:latest
+    container_name: frontend
+    tty: true
+    stdin_open: true
+    command: bash -c "npm install && npm run dev"
+    restart: always
+    working_dir: /frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - ${PORT_FRONTEND}:${PORT_FRONTEND}
+    env_file: .env
+    platform: linux/x86_64
+    depends_on:
+      - backend
+    networks:
+      - ngcash_net_backend
+
   backend:
     image: node:latest
     container_name: backend
@@ -13,25 +32,29 @@ services:
     volumes:
       - ./backend:/backend
     ports:
-      - 3001:3001
+      - ${PORT_BACKEND}:${PORT_BACKEND}
     env_file: .env
     platform: linux/x86_64
     depends_on:
       - database
     networks:
-      - ngcash_net
+      - ngcash_net_database
+      - ngcash_net_backend
 
   database:
     image: postgres:latest
     container_name: database
     platform: linux/x86_64
     ports:
-      - 3002:5432
+      - ${DATABASE_PORT}:${DATABASE_PORT}
     env_file: .env
     restart: 'always'
     networks:
-      - ngcash_net
+      - ngcash_net_database
+    command: -p ${DATABASE_PORT}
 
 networks:
-  ngcash_net:
+  ngcash_net_database:
+    driver: bridge
+  ngcash_net_backend:
     driver: bridge
