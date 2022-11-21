@@ -27,7 +27,7 @@ export default function Transfer() {
   }, [push]);
 
   useEffect(() => {
-    const regexMoney = /^(?:[$]|)[+-]?[0-9]{1,2}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{2})*(?:\.[0-9]{1,2})?)$/;
+    const regexMoney = /^(?:|)[+-]?[0-9]{1,2}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{2})*(?:\.[0-9]{1,2})?)$/;
     if (value.match(regexMoney)) {
       setIsCashFormatValid(true);
     } else {
