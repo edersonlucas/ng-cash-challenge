@@ -25,8 +25,6 @@ export class TransactionsController {
     } else {
       transactions = await this.transactionsService.findAll(user);
     }
-    if (transactions.length < 1)
-      return { message: MessagesHelper.TRANSACTION_NOT_FOUND };
     return transactions;
   }
 
