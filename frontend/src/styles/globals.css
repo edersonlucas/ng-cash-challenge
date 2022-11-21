@@ -7,7 +7,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  @apply bg-blue-700;
+  @apply bg-black-900;
 }
 
 html::-webkit-scrollbar-thumb {
