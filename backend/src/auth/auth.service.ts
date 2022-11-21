@@ -36,7 +36,7 @@ export class AuthService {
       username: userParamDto.username,
     };
     const token = this.jwtService.sign(payload);
-    return { token };
+    return { username: userParamDto.username, token };
   }
 
   async validateUser(username: string, password: string) {
