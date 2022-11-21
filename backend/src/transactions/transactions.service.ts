@@ -97,7 +97,7 @@ export class TransactionsService {
     if (accountSend.account.balance < transferDto.value)
       throw new HttpException(
         MessagesHelper.INSUFFICIENT_BALANCE,
-        HttpStatus.BAD_REQUEST,
+        HttpStatus.FORBIDDEN,
       );
     return { accountReceive, accountSend };
   }
