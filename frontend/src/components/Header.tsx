@@ -8,14 +8,20 @@ import { AuthContext } from '../contexts/AuthContext';
 export default function Header() {
   const { isAuthenticated, logout } = useContext(AuthContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  function openMenu() {
+
+  const handleLogout = () => {
+    setIsOpenMenu(false);
+    logout();
+  };
+
+  const openMenu = () => {
     if (isOpenMenu) {
       document.body.style.overflow = '';
     } else {
       document.body.style.overflow = 'hidden';
     }
     setIsOpenMenu(!isOpenMenu);
-  }
+  };
   return (
     isAuthenticated ? (
       <header
@@ -59,16 +65,16 @@ export default function Header() {
             }`}
           >
             <nav className="h-full flex flex-col items-center justify-center gap-8 text-white-900 text-2xl">
-              <Link href="/" className="hover:font-medium">
+              <Link onClick={() => setIsOpenMenu(!isOpenMenu)} href="/" className="hover:font-medium">
                 Início
               </Link>
-              <Link href="/transfer" className="hover:opacity-90">
+              <Link onClick={() => setIsOpenMenu(!isOpenMenu)} href="/transfer" className="hover:opacity-90">
                 Transferir
               </Link>
-              <Link href="/history" className="hover:opacity-90">
+              <Link onClick={() => setIsOpenMenu(!isOpenMenu)} href="/history" className="hover:opacity-90">
                 Histórico
               </Link>
-              <button type="button" onClick={logout} className="flex items-center gap-1 hover:opacity-90">
+              <button type="button" onClick={handleLogout} className="flex items-center gap-1 hover:opacity-90">
                 Sair
                 <SignOut size={32} />
               </button>
