@@ -1,18 +1,17 @@
 <h1 align="center">
-    <img alt="NG.CASH CHALLENGE" src="screenshots/2.png" width="100%" />
+    <img alt="NG.CASH CHALLENGE" src="screenshots/banner.png" width="100%" />
     <br>
-    NG.CASH CHALLENGE
 </h1>
 <h4 align="center">
   Este é um desafio técnico realizado para a NG.CASH com o intuito de ocupar a vaga de desenvolvedor backend.
 </h4>
 
+
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
-
 - **Backend**
-
   - NestJS
   - TypeORM
   - Banco de dados PostgresSQL
@@ -20,8 +19,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - Passport / Passport-jwt / Passport-local
   - Class-validator
   - TypeScript
+  - Docker
 - **FrontEnd**
-
   - NextJS
   - TailwindCSS
   - Axios
@@ -31,7 +30,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - React-toastify
   - Date-fns
   - Hooks
+  - TypeScript
+  - Docker
 
+![NG.CASH CHALLENGE](screenshots/2.png)
 ![NG.CASH CHALLENGE](screenshots/1.png)
 
 ![NG.CASH CHALLENGE](screenshots/3.png)
@@ -196,7 +198,7 @@ Header: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi
 
 #### Como foi feito
 
-Primeiro passo foi organizar os requisitos de um jeito que fizesse mais sentido pra mim, a imagem do excalidraw com o diagrama que criei se encontra logo abaixo. Segundo passo foi pensar em qual tecnologia usar, na Trybe nos ensinam a usar express e sequelize no **backend**, mas eu estou estudando nestjs e resolvi criar o projeto com ele. Como ele já é nativo do TypeScript fez mais sentido para mim e no **frontend** resolvi testar o framework NextJS por curiosidade e para aprimorar os conhecimentos.
+Primeiro passo foi organizar os requisitos de um jeito que fizesse mais sentido pra mim, a imagem do excalidraw com o diagrama que criei se encontra logo abaixo. Segundo passo foi pensar em qual tecnologia usar, na Trybe ensinam a usar express e sequelize no **backend**, mas eu estou estudando nestjs e resolvi criar o projeto com ele. Como ele já é nativo do TypeScript fez mais sentido para mim e no **frontend** resolvi testar o framework NextJS por curiosidade e para aprimorar os conhecimentos.
 
 ![EXCALIDRAW](screenshots/excalidraw.png)
 
@@ -230,18 +232,18 @@ cd ng-cash-challenge
 
     PORT_FRONTEND=
     NEXT_PUBLIC_API_URL=
-
+    
     PORT_BACKEND=
     POSTGRES_USER=
     POSTGRES_PASSWORD=
-
+    
     DATABASE_TYPE=
     DATABASE_HOST=
     DATABASE_PORT=
     DATABASE_NAME=
     DATABASE_USER=
     DATABASE_PASSWORD=
-
+    
     JWT_SECRET=
     JWT_EXPIRES_IN=
 
