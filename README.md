@@ -32,13 +32,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - Date-fns
   - Hooks
 
-`<img alt="NG.CASH CHALLENGE" src="screenshots/1.png" width="100%" />``
+![NG.CASH CHALLENGE](screenshots/1.png)
 
-`<img alt="NG.CASH CHALLENGE" src="screenshots/3.png" width="100%" />``
+![NG.CASH CHALLENGE](screenshots/3.png)
 
 ## 💻 Case
 
-Elaborar uma aplicação fullstack dockerizada, onde os usuarios poderiam realizar transações financeiras entre si.
+Elaborar uma aplicação fullstack dockerizada, onde os usuários poderiam realizar transações financeiras entre si.
 
 #### Funcionalidades
 
@@ -67,9 +67,9 @@ O projeto está estruturado em duas pastas são elas: **frontend** e **backend**
 ```json
 #Exemplo de resposta:
 {
-	"username": "ederson",
-	"balance": 100,
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OWFmNWY1Ny0yMjA4LTRlNDMtOGNhMS1hYTZjY2U4ZWY2YTQiLCJ1c2VybmFtZSI6ImN1bmhhIiwiaWF0IjoxNjY4OTgzNTM0LCJleHAiOjE2NjkwNjk5MzR9.HztpG5UhVQTgkX5JerS_xTdVxP2F51tGf9BnzLrlaLU"
+   "username": "ederson",
+   "balance": 100,
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OWFmNWY1Ny0yMjA4LTRlNDMtOGNhMS1hYTZjY2U4ZWY2YTQiLCJ1c2VybmFtZSI6ImN1bmhhIiwiaWF0IjoxNjY4OTgzNTM0LCJleHAiOjE2NjkwNjk5MzR9.HztpG5UhVQTgkX5JerS_xTdVxP2F51tGf9BnzLrlaLU"
 }
 ```
 
@@ -86,8 +86,8 @@ O projeto está estruturado em duas pastas são elas: **frontend** e **backend**
 ```json
 #Exemplo de resposta:
 {
-	"username": "ederson",
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OWFmNWY1Ny0yMjA4LTRlNDMtOGNhMS1hYTZjY2U4ZWY2YTQiLCJ1c2VybmFtZSI6ImN1bmhhIiwiaWF0IjoxNjY4OTgzNTM0LCJleHAiOjE2NjkwNjk5MzR9.HztpG5UhVQTgkX5JerS_xTdVxP2F51tGf9BnzLrlaLU"
+   "username": "ederson",
+   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OWFmNWY1Ny0yMjA4LTRlNDMtOGNhMS1hYTZjY2U4ZWY2YTQiLCJ1c2VybmFtZSI6ImN1bmhhIiwiaWF0IjoxNjY4OTgzNTM0LCJleHAiOjE2NjkwNjk5MzR9.HztpG5UhVQTgkX5JerS_xTdVxP2F51tGf9BnzLrlaLU"
 }
 ```
 
@@ -122,8 +122,8 @@ Header: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi
 ```json
 #Exemplo de resposta:
 {
-	"username": "ederson",
-	"balance": 100
+   "username": "ederson",
+   "balance": 100
 }
 ```
 
@@ -138,13 +138,13 @@ Header: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi
 ```json
 #Exemplo de resposta:
 [
-	{
-		"id": "eb41e58a-f815-4240-980e-47444376122d",
-		"cashOut": "ederson",
-		"cashIn": "ngcash",
-		"value": "50.54",
-		"createAt": "2022-11-20T22:33:11.056Z"
-	}
+   {
+      "id": "eb41e58a-f815-4240-980e-47444376122d",
+      "cashOut": "ederson",
+      "cashIn": "ngcash",
+      "value": "50.54",
+      "createAt": "2022-11-20T22:33:11.056Z"
+   }
 ]
 ```
 
@@ -159,38 +159,38 @@ Header: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi
 ```json
 #Exemplo de resposta:
 [
-	{
-		"id": "feffa1c7-b805-4bac-8c57-4ec17857a22e",
-		"cashOut": "ederson",
-		"cashIn": "ngcash",
-		"value": "0.54",
-		"createAt": "2022-11-19T05:17:41.867Z"
-	},
-	{
-		"id": "19b968a3-953f-4ce9-9b7d-ac1061f7524f",
-		"cashOut": "ederson",
-		"cashIn": "ngcash",
-		"value": "50.54",
-		"createAt": "2022-11-19T05:17:43.411Z"
-	},
-	{
-		"id": "46b92de4-8c36-485a-a281-0d4dd8daf207",
-		"cashOut": "ederson",
-		"cashIn": "ngcash",
-		"value": "0.54",
-		"createAt": "2022-11-19T05:17:44.287Z"
-	},
-	{
-		"id": "f2315f80-4dbc-4b67-b905-faed5151f0d9",
-		"cashOut": "ederson",
-		"cashIn": "ngcash",
-		"value": "0.54",
-		"createAt": "2022-11-19T05:17:45.266Z"
-	}
+   {
+      "id": "feffa1c7-b805-4bac-8c57-4ec17857a22e",
+      "cashOut": "ederson",
+      "cashIn": "ngcash",
+      "value": "0.54",
+      "createAt": "2022-11-19T05:17:41.867Z"
+   },
+   {
+      "id": "19b968a3-953f-4ce9-9b7d-ac1061f7524f",
+      "cashOut": "ederson",
+      "cashIn": "ngcash",
+      "value": "50.54",
+      "createAt": "2022-11-19T05:17:43.411Z"
+   },
+   {
+      "id": "46b92de4-8c36-485a-a281-0d4dd8daf207",
+      "cashOut": "ederson",
+      "cashIn": "ngcash",
+      "value": "0.54",
+      "createAt": "2022-11-19T05:17:44.287Z"
+   },
+   {
+      "id": "f2315f80-4dbc-4b67-b905-faed5151f0d9",
+      "cashOut": "ederson",
+      "cashIn": "ngcash",
+      "value": "0.54",
+      "createAt": "2022-11-19T05:17:45.266Z"
+   }
 ]
 ```
 
-`<img alt="NG.CASH CHALLENGE" src="screenshots/4.png" width="100%" /><img alt="NG.CASH CHALLENGE" src="screenshots/5.png" width="100%" />``
+<img alt="NG.CASH CHALLENGE" src="screenshots/4.png" width="100%" /><img alt="NG.CASH CHALLENGE" src="screenshots/5.png" width="100%" />
 
 ## 🚧 Desenvolvimento
 
@@ -198,9 +198,9 @@ Header: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIi
 
 Primeiro passo foi organizar os requisitos de um jeito que fizesse mais sentido pra mim, a imagem do excalidraw com o diagrama que criei se encontra logo abaixo. Segundo passo foi pensar em qual tecnologia usar, na Trybe nos ensinam a usar express e sequelize no **backend**, mas eu estou estudando nestjs e resolvi criar o projeto com ele. Como ele já é nativo do TypeScript fez mais sentido para mim e no **frontend** resolvi testar o framework NextJS por curiosidade e para aprimorar os conhecimentos.
 
-`<img alt="EXCALIDRAW" src="screenshots/excalidraw.png" width="100%" />``
+![EXCALIDRAW](screenshots/excalidraw.png)
 
-`<img alt="FIGMA" src="screenshots/figma.png" width="100%" />``
+![FIGMA](screenshots/figma.png)
 
 Link do figma criado por mim: https://www.figma.com/file/MX0pv1Aplfm9pJzvaCtTAE/Layout-para-NG.CASH
 
@@ -249,10 +249,11 @@ cd ng-cash-challenge
 
     docker compose up
 
-#### [🚨](https://emojiterra.com/pt/luz-giratoria/) Se tiver qualquer problema ou dúvida ao rodar o projeto, pode me chamar aqui estão meus contatos.
+#### [🚨](https://emojiterra.com/pt/luz-giratoria/) Em caso de dúvida, entre em contato..
+
+[Email](edersonlucas@outlook.com.br) 
 
 [Linkedin](https://www.linkedin.com/in/edersonlucas/)
-Email: edersonlucas@outlook.com.br
 
 ---
 
